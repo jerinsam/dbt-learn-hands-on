@@ -1,6 +1,6 @@
 ## LEARN KAFKA
 **DATA ENGINEERING - Learn DBT**
-Learn DBT, For this tutorial DBT and SQL Server is used, Dockerfile is used to create a Python container.
+- Learn DBT, For this tutorial DBT and SQL Server is used, Dockerfile is used to create a Python container.
 
 **Following Services are covered -**
 1. Airflow
