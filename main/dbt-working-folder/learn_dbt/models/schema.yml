@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: dim_listing_and_host
+    columns:
+      - name: room_type
+        tests:
+          - accepted_values:
+              values:
+                - 'Private room' 
+                - 'Shared room'
+                - 'Hotel room'
+                - 'Entire home/apt'
+                
+      - name: listing_id
+        tests:
+          - unique
+          - not_null
+
+      - name: listing_id
+        tests:
+          - relationships:
+              to: ref('dim_listings')   
+              field: listing_id
+
+  - name: dim_listings
+    columns:
+      - name: minimum_nights
+        tests:
+          - generic_test_less_than_one

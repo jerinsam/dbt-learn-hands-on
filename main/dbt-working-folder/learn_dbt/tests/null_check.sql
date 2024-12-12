@@ -1,0 +1,1 @@
+{{ check_not_null_all_columns(ref('dim_listings')) }}

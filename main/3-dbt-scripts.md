@@ -34,3 +34,21 @@ dbt source freshness
 ```
 dbt snapshot
 ```
+
+
+##### Run defined tests on the models
+```
+# Run all tests defined on all the models
+dbt test 
+
+# Run tests defined on a perticular model
+dbt test --select dim_listing_and_host
+```
+
+
+##### Install dbt packages
+```
+dbt deps 
+```
+
+
