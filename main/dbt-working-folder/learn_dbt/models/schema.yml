@@ -2,8 +2,10 @@ version: 2
 
 models:
   - name: dim_listing_and_host
+    description: This is the combination of Listings and Host dimension tables
     columns:
       - name: room_type
+        description: Type of room hosted
         tests:
           - accepted_values:
               values:
@@ -13,6 +15,7 @@ models:
                 - 'Entire home/apt'
                 
       - name: listing_id
+        description: Unique identifier for the listing
         tests:
           - unique
           - not_null
@@ -22,9 +25,53 @@ models:
           - relationships:
               to: ref('dim_listings')   
               field: listing_id
+      
+      - name: listing_name
+        description: Property name of the listed property
+
+      - name: listing_url
+        description: Airbnb link of the listed property
+
+      - name: price
+        description: Price of the listed property
+      
+      - name: host_name
+        description: Host name of the listed property
+
+      - name: minimum_nights
+        description: Minimum number of nights required to book the listing
 
   - name: dim_listings
+    description: Listings dimension table created using raw data
     columns:
       - name: minimum_nights
+        description: Minimum number of nights required to book the listing
         tests:
           - generic_test_less_than_one
+      
+      - name: listing_name
+        description: Property name of the listed property
+
+      - name: listing_url
+        description: Airbnb link of the listed property
+
+      - name: price
+        description: Price of the listed property
+      
+      - name: host_id
+        description: Host Id of the listed property, This is referenced using dim_host table
+
+  - name: dim_host
+    description: Host dimension table created using raw data
+    columns:
+      - name: host_id
+        description: Host Id of the listed property
+       - name: host_name
+        description: Host name of the listed property
+
+
+  - name: fact_reviews
+    description: Fact table for reviews given by customers, this is created using raw data
+    columns:
+      - name: review
+        description: {{ doc() }}

@@ -51,4 +51,13 @@ dbt test --select dim_listing_and_host
 dbt deps 
 ```
 
+##### Generate Documentation
+```
+#Documentation details compiled by command dbt docs generate is stored in /target/ folder of dbt project “learn_dbt”
+dbt docs generate 
+```
+##### Start Documentation Server
+```
+dbt docs serve 
+```
 
