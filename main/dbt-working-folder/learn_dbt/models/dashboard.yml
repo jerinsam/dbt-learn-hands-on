@@ -1,0 +1,14 @@
+version: 2
+
+exposures:
+  - name: dummy_dashabord
+    type: dashboard
+    maturity: low
+    url: https://dummy_dashbaord:443/
+    description: Executive Dashboard about Airbnb listings and hosts
+    depends_on:
+      - ref('dim_listing_and_host')
+      - ref('mart_seed_full_moon')
+    owner:
+      name: jerin.sam
+      email: jerinsam@dbtlearn.com

@@ -29,22 +29,26 @@ It is a text file that contains instructions for building a Docker image. It is 
     # Build dockerfile to create a new image
     docker build -t dbt-learn-hands-on .
     ```
-  - Run the command `docker run -it --rm -v "<host/folder : docker/folder >" --name <container-name> <image-name>` to create and run a new container from the Docker image
+  - Run the command `docker run -p <docker_port>:<host_port> -it --rm -v "<host/folder : docker/folder >" --name <container-name> <image-name>` to create and run a new container from the Docker image
+  
     - **docker run**: This command is used to create a new container from the Docker image
     - **-it**: This flag is used to allocate a pseudo-TTY to the container and keep the container running even after the command is executed
     - **--rm**: This flag is used to automatically remove the container when it is stopped 
-    - **-v "<host/folder : docker/folder>"**: This flag is used to mount a volume from the host machine to the container. This allows the container to access files from the 
+    - **-v "<host/folder : docker/folder>"**: This flag is used to mount a volume from the host machine to the container. This allows the container to access files from the host folder and vice versa.
+    - **-p <docker_port>:<host_port>**: This flag is used to map a port from the host machine to the container. This allows the container machine to be accessed from the host machine.
     - **--name <container-name>**: This flag is used to specify the name of the container
     - **<image_name>** : This is the name of the Docker image created in the previous step
 
     ```
     # Run the container from the newly created image and mount the volume with host folder
     # while using WSL (Windows Subsystem for Linux), path should be in the format /mnt/c/path/to/folder
-    # Syntax : docker run -it --rm -v "/mnt/c/path/to/folder:/usr/local/app" --name dbt-learn-hands-on dbt-learn-hands-on
+    # Syntax : docker run -it --rm -p 8080:8080 -v "/mnt/c/path/to/folder:/usr/local/app" --name dbt-learn-hands-on dbt-learn-hands-on
 
-    docker run -v /mnt/c/Users/jerin/OneDrive\ -\ Aligned\ Automation/Work/Learn/Tech\ Solutions/dbt-learn-hands-on/main/dbt-working-folder:/usr/local/app/dbt-working-folder --name dbt-learn-hands-on dbt-learn-hands-on
+    docker run -p 8080:8080 -v /mnt/c/Users/jerin/OneDrive\ -\ Aligned\ Automation/Work/Learn/Tech\ Solutions/dbt-learn-hands-on/main/dbt-working-folder:/usr/local/app/dbt-working-folder --name dbt-learn-hands-on dbt_learn_image
+    
     ``` 
   - Start the shell of running container in Host machine using the following command
     ```
     docker exec -it <container_name_or_id> /bin/bash
     ```
+    

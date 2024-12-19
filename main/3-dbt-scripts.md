@@ -56,8 +56,12 @@ dbt deps
 #Documentation details compiled by command dbt docs generate is stored in /target/ folder of dbt project “learn_dbt”
 dbt docs generate 
 ```
-##### Start Documentation Server
+##### Start Documentation Server at localhost:8080
 ```
-dbt docs serve 
+# Below command will work only if docker container is exposed to port 8080 with “-p 8080:8080” flag while stating the container, refer /install_and_config/2-dbt-install/script-dockerfile-execute.md 
+
+# 0.0.0.0 is used to bind the server to all available network interfaces.
+
+dbt docs serve --host 0.0.0.0 --port 8080 
 ```
 

@@ -1,6 +1,6 @@
 version: 2
 
-models:
+models: # or sources
   - name: dim_listing_and_host
     description: This is the combination of Listings and Host dimension tables
     columns:
@@ -66,12 +66,108 @@ models:
     columns:
       - name: host_id
         description: Host Id of the listed property
-       - name: host_name
+
+      - name: host_name
         description: Host name of the listed property
 
+
+  - name: facr_reviews
+    description: Fact table for reviews given by customers, this is created using raw data
+    columns:
+      - name: review
+        description: '{{ doc("fact_review_doc_reviews") }}'
+  
+  - name: mart_seed_full_moon
+    desctiption: Data Mart table for bookings made during full moon, this is created using facr_reviews table
+    columns:
+      - name: review
+        tests:version: 2
+
+models: # or sources
+  - name: dim_listing_and_host
+    description: This is the combination of Listings and Host dimension tables
+    columns:
+      - name: room_type
+        description: Type of room hosted
+        tests:
+          - accepted_values:
+              values:
+                - 'Private room' 
+                - 'Shared room'
+                - 'Hotel room'
+                - 'Entire home/apt'
+                
+      - name: listing_id
+        description: Unique identifier for the listing
+        tests:
+          - unique
+          - not_null
+
+      - name: listing_id
+        tests:
+          - relationships:
+              to: ref('dim_listings')   
+              field: listing_id
+              
+      - name: listing_name
+        description: Property name of the listed property
+
+      - name: listing_url
+        description: Airbnb link of the listed property
+
+      - name: price
+        description: Price of the listed property
+        tests:
+          - generic_test_greater_than_zero
+
+      - name: host_name
+        description: Host name of the listed property
+
+      - name: minimum_nights
+        description: Minimum number of nights required to book the listing
+        tests:
+          - generic_test_greater_than_zero
+
+  - name: dim_listings
+    description: Listings dimension table created using raw data
+    columns:
+      - name: minimum_nights
+        description: Minimum number of nights required to book the listing
+        tests:
+          - generic_test_greater_than_zero
+      
+      - name: listing_name
+        description: Property name of the listed property
+
+      - name: listing_url
+        description: Airbnb link of the listed property
+
+      - name: price
+        description: Price of the listed property
+        tests:
+          - generic_test_greater_than_zero
+      
+      - name: host_id
+        description: Host Id of the listed property, This is referenced using dim_host table
+
+  - name: dim_host
+    description: Host dimension table created using raw data
+    columns:
+      - name: host_id
+        description: Host Id of the listed property
+
+      - name: host_name
+        description: Host name of the listed property
 
   - name: fact_reviews
     description: Fact table for reviews given by customers, this is created using raw data
     columns:
       - name: review
-        description: {{ doc() }}
+        description: '{{ doc("fact_review_doc_reviews") }}'
+  
+  - name: mart_seed_full_moon
+    description: Data Mart table for bookings made during full moon, this is created using fact_reviews table
+    columns:
+      - name: review_key
+        tests:
+          - dbt_expectations.expect_column_values_to_be_unique

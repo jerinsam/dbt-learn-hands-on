@@ -17,6 +17,7 @@ test-paths: ["tests"]
 seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
+asset-paths: ["assets"]
 
 clean-targets:         # directories to be removed by `dbt clean`
   - "target"
@@ -33,7 +34,21 @@ models:
   learn_dbt:
     # Config indicated by + and applies to all files under models/example/
     +materialized: view
-
+    +pre-hook: 
+      - >
+        DELETE FROM [dbo].[logs]
+        WHERE end_date_time is null;
+        
+        INSERT INTO dbt.dbo.logs (model, start_date_time)
+        VALUES ('{{ this }}', GETDATE());
+        
+    +post-hook: 
+      - >
+        UPDATE dbt.dbo.logs
+        SET end_date_time = GETDATE()
+        WHERE model = '{{ this }}' AND end_date_time IS NULL;
+       
+        
     src:
       +materialized: ephemeral
 
