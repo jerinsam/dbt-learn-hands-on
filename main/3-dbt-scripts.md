@@ -45,6 +45,10 @@ dbt test
 dbt test --select dim_listing_and_host
 ```
 
+##### Execute macro using arguments
+```
+dbt run-operation dbt_custom_log --args '{"message": "ABCD Custom Log Testing", "level": "info"}'
+```
 
 ##### Install dbt packages
 ```
