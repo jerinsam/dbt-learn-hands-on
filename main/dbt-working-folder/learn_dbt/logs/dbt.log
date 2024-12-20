@@ -1,0 +1,253 @@
+[0m08:19:39.466303 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb02f6a9710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb02f6aa190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb02f6ab0d0>]}
+
+
+============================== 08:19:39.469983 | c8098db5-e70d-4bf2-8eed-f98f8746a724 ==============================
+[0m08:19:39.469983 [info ] [MainThread]: Running with dbt=1.8.9
+[0m08:19:39.471537 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': '/usr/local/app/dbt-working-folder/learn_dbt/logs', 'profiles_dir': '/root/.dbt', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'target_path': 'None', 'invocation_command': 'dbt run --select dim_host', 'send_anonymous_usage_stats': 'True'}
+[0m08:19:39.757397 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'c8098db5-e70d-4bf2-8eed-f98f8746a724', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb02e3ce590>]}
+[0m08:19:39.814861 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'c8098db5-e70d-4bf2-8eed-f98f8746a724', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb030341c10>]}
+[0m08:19:39.817073 [info ] [MainThread]: Registered adapter: sqlserver=1.8.5
+[0m08:19:39.960116 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m08:19:43.911985 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m08:19:43.912987 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m08:19:44.008294 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'c8098db5-e70d-4bf2-8eed-f98f8746a724', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb02e3608d0>]}
+[0m08:19:44.275505 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'c8098db5-e70d-4bf2-8eed-f98f8746a724', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb02e2a9c90>]}
+[0m08:19:44.276745 [info ] [MainThread]: Found 8 models, 1 snapshot, 1 analysis, 11 data tests, 1 seed, 3 sources, 1 exposure, 884 macros
+[0m08:19:44.277881 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'c8098db5-e70d-4bf2-8eed-f98f8746a724', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb02f41b6d0>]}
+[0m08:19:44.280732 [info ] [MainThread]: 
+[0m08:19:44.282412 [debug] [MainThread]: Acquiring new sqlserver connection 'master'
+[0m08:19:44.284121 [debug] [ThreadPool]: Acquiring new sqlserver connection 'list_dbt'
+[0m08:19:44.301044 [debug] [ThreadPool]: dbt-sqlserver
+[0m08:19:44.302326 [debug] [ThreadPool]: Using sqlserver connection "list_dbt"
+[0m08:19:44.303363 [debug] [ThreadPool]: On list_dbt: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "learn_dbt", "target_name": "dev", "connection_name": "list_dbt"} */
+select  name as [schema]
+    from sys.schemas with (nolock) 
+    OPTION (LABEL = 'dbt-sqlserver');
+
+  
+[0m08:19:44.304552 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m08:19:44.305785 [debug] [ThreadPool]: sqlserver adapter: Using connection string: DRIVER={ODBC Driver 18 for SQL Server};SERVER=192.168.100.1,1433;Database=dbt;UID={js};PWD=***;encrypt=No;TrustServerCertificate=Yes;APP=dbt-sqlserver/1.8.5
+[0m08:19:44.341089 [debug] [ThreadPool]: sqlserver adapter: Connected to db: dbt
+[0m08:19:44.344648 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m08:19:44.348130 [debug] [ThreadPool]: On list_dbt: Close
+[0m08:19:44.356194 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_dbt, now list_dbt_raw)
+[0m08:19:44.365936 [debug] [ThreadPool]: dbt-sqlserver
+[0m08:19:44.367474 [debug] [ThreadPool]: Using sqlserver connection "list_dbt_raw"
+[0m08:19:44.368801 [debug] [ThreadPool]: On list_dbt_raw: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "learn_dbt", "target_name": "dev", "connection_name": "list_dbt_raw"} */
+USE [dbt];
+    with base as (
+      select
+        DB_NAME() as [database],
+        t.name as [name],
+        SCHEMA_NAME(t.schema_id) as [schema],
+        'table' as table_type
+      from sys.tables as t with (nolock)
+      union all
+      select
+        DB_NAME() as [database],
+        v.name as [name],
+        SCHEMA_NAME(v.schema_id) as [schema],
+        'view' as table_type
+      from sys.views as v with (nolock)
+    )
+    select * from base
+    where [schema] like 'raw'
+    
+    OPTION (LABEL = 'dbt-sqlserver');
+
+  
+[0m08:19:44.369966 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m08:19:44.371618 [debug] [ThreadPool]: sqlserver adapter: Using connection string: DRIVER={ODBC Driver 18 for SQL Server};SERVER=192.168.100.1,1433;Database=dbt;UID={js};PWD=***;encrypt=No;TrustServerCertificate=Yes;APP=dbt-sqlserver/1.8.5
+[0m08:19:44.392514 [debug] [ThreadPool]: sqlserver adapter: Connected to db: dbt
+[0m08:19:44.432273 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m08:19:44.435217 [debug] [ThreadPool]: On list_dbt_raw: ROLLBACK
+[0m08:19:44.436598 [debug] [ThreadPool]: On list_dbt_raw: Close
+[0m08:19:44.438188 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_dbt_raw, now list_dbt_dbo)
+[0m08:19:44.442710 [debug] [ThreadPool]: dbt-sqlserver
+[0m08:19:44.443884 [debug] [ThreadPool]: Using sqlserver connection "list_dbt_dbo"
+[0m08:19:44.444947 [debug] [ThreadPool]: On list_dbt_dbo: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "learn_dbt", "target_name": "dev", "connection_name": "list_dbt_dbo"} */
+USE [dbt];
+    with base as (
+      select
+        DB_NAME() as [database],
+        t.name as [name],
+        SCHEMA_NAME(t.schema_id) as [schema],
+        'table' as table_type
+      from sys.tables as t with (nolock)
+      union all
+      select
+        DB_NAME() as [database],
+        v.name as [name],
+        SCHEMA_NAME(v.schema_id) as [schema],
+        'view' as table_type
+      from sys.views as v with (nolock)
+    )
+    select * from base
+    where [schema] like 'dbo'
+    
+    OPTION (LABEL = 'dbt-sqlserver');
+
+  
+[0m08:19:44.445959 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m08:19:44.446984 [debug] [ThreadPool]: sqlserver adapter: Using connection string: DRIVER={ODBC Driver 18 for SQL Server};SERVER=192.168.100.1,1433;Database=dbt;UID={js};PWD=***;encrypt=No;TrustServerCertificate=Yes;APP=dbt-sqlserver/1.8.5
+[0m08:19:44.457579 [debug] [ThreadPool]: sqlserver adapter: Connected to db: dbt
+[0m08:19:44.487650 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m08:19:44.490374 [debug] [ThreadPool]: On list_dbt_dbo: ROLLBACK
+[0m08:19:44.491654 [debug] [ThreadPool]: On list_dbt_dbo: Close
+[0m08:19:44.495301 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'c8098db5-e70d-4bf2-8eed-f98f8746a724', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb02de77ad0>]}
+[0m08:19:44.496557 [debug] [MainThread]: On master: COMMIT
+[0m08:19:44.497749 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m08:19:44.499129 [info ] [MainThread]: 
+[0m08:19:44.502821 [debug] [Thread-1 (]: Began running node model.learn_dbt.dim_host
+[0m08:19:44.504191 [info ] [Thread-1 (]: 1 of 1 START sql table model dbo.dim_host ...................................... [RUN]
+[0m08:19:44.505517 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_dbt_dbo, now model.learn_dbt.dim_host)
+[0m08:19:44.506593 [debug] [Thread-1 (]: Began compiling node model.learn_dbt.dim_host
+[0m08:19:44.517051 [info ] [Thread-1 (]: Running dim hosts model
+[0m08:19:44.518554 [info ] [Thread-1 (]: Execution completed for dim hosts model
+[0m08:19:44.519863 [debug] [Thread-1 (]: Writing injected SQL for node "model.learn_dbt.dim_host"
+[0m08:19:44.530216 [debug] [Thread-1 (]: Began executing node model.learn_dbt.dim_host
+[0m08:19:44.563715 [debug] [Thread-1 (]: Using sqlserver connection "model.learn_dbt.dim_host"
+[0m08:19:44.565406 [debug] [Thread-1 (]: On model.learn_dbt.dim_host: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "learn_dbt", "target_name": "dev", "node_id": "model.learn_dbt.dim_host"} */
+
+        DELETE FROM [dbo].[logs] WHERE end_date_time is null;
+INSERT INTO dbt.dbo.logs (model, start_date_time) VALUES ('"dbt"."dbo"."dim_host"', GETDATE());
+      
+[0m08:19:44.566572 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m08:19:44.567591 [debug] [Thread-1 (]: sqlserver adapter: Using connection string: DRIVER={ODBC Driver 18 for SQL Server};SERVER=192.168.100.1,1433;Database=dbt;UID={js};PWD=***;encrypt=No;TrustServerCertificate=Yes;APP=dbt-sqlserver/1.8.5
+[0m08:19:44.578598 [debug] [Thread-1 (]: sqlserver adapter: Connected to db: dbt
+[0m08:19:44.583058 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m08:19:44.598412 [debug] [Thread-1 (]: dbt-sqlserver
+[0m08:19:44.607379 [debug] [Thread-1 (]: Applying DROP to: "dbt"."dbo"."dim_host__dbt_tmp__dbt_tmp_vw"
+[0m08:19:44.616085 [debug] [Thread-1 (]: dbt-sqlserver
+[0m08:19:44.617481 [debug] [Thread-1 (]: Using sqlserver connection "model.learn_dbt.dim_host"
+[0m08:19:44.618675 [debug] [Thread-1 (]: On model.learn_dbt.dim_host: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "learn_dbt", "target_name": "dev", "node_id": "model.learn_dbt.dim_host"} */
+
+        USE [dbt];
+        select
+            sch.name as schema_name,
+            obj.name as view_name
+        from sys.sql_expression_dependencies refs
+        inner join sys.objects obj
+        on refs.referencing_id = obj.object_id
+        inner join sys.schemas sch
+        on obj.schema_id = sch.schema_id
+        where refs.referenced_database_name = 'dbt'
+        and refs.referenced_schema_name = 'dbo'
+        and refs.referenced_entity_name = 'dim_host__dbt_tmp__dbt_tmp_vw'
+        and refs.referencing_class = 1
+        and obj.type = 'V'
+        
+    OPTION (LABEL = 'dbt-sqlserver');
+
+      
+[0m08:19:44.647543 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m08:19:44.650199 [debug] [Thread-1 (]: Using sqlserver connection "model.learn_dbt.dim_host"
+[0m08:19:44.651667 [debug] [Thread-1 (]: On model.learn_dbt.dim_host: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "learn_dbt", "target_name": "dev", "node_id": "model.learn_dbt.dim_host"} */
+
+      
+      
+    
+    USE [dbt];
+    EXEC('DROP view IF EXISTS "dbo"."dim_host__dbt_tmp__dbt_tmp_vw";');
+
+[0m08:19:44.654159 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m08:19:44.671223 [debug] [Thread-1 (]: Writing runtime sql for node "model.learn_dbt.dim_host"
+[0m08:19:44.682690 [debug] [Thread-1 (]: Using sqlserver connection "model.learn_dbt.dim_host"
+[0m08:19:44.683719 [debug] [Thread-1 (]: On model.learn_dbt.dim_host: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "learn_dbt", "target_name": "dev", "node_id": "model.learn_dbt.dim_host"} */
+
+  
+    USE [dbt];
+    USE [dbt];
+    
+    
+
+    
+
+    
+    USE [dbt];
+    EXEC('
+        create view "dbo"."dim_host__dbt_tmp__dbt_tmp_vw" as 
+
+with src_host as (
+    select * from "dbt"."dbo"."src_listing"
+)
+
+select DISTINCT CAST(host_id as int) as host_id,
+''XYZ'' + host_id + ''ABC'' as host_name 
+from src_host
+ 
+;
+    ')
+
+EXEC('
+            SELECT * INTO "dbt"."dbo"."dim_host__dbt_tmp" FROM "dbt"."dbo"."dim_host__dbt_tmp__dbt_tmp_vw" 
+    OPTION (LABEL = ''dbt-sqlserver'');
+
+        ')
+
+    
+    EXEC('DROP VIEW IF EXISTS dbo.dim_host__dbt_tmp__dbt_tmp_vw')
+
+
+
+    
+    use [dbt];
+    if EXISTS (
+        SELECT *
+        FROM sys.indexes with (nolock)
+        WHERE name = 'dbo_dim_host__dbt_tmp_cci'
+        AND object_id=object_id('dbo_dim_host__dbt_tmp')
+    )
+    DROP index "dbo"."dim_host__dbt_tmp".dbo_dim_host__dbt_tmp_cci
+    CREATE CLUSTERED COLUMNSTORE INDEX dbo_dim_host__dbt_tmp_cci
+    ON "dbo"."dim_host__dbt_tmp"
+
+   
+
+
+  
+[0m08:19:44.810487 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m08:19:44.818454 [debug] [Thread-1 (]: Using sqlserver connection "model.learn_dbt.dim_host"
+[0m08:19:44.819681 [debug] [Thread-1 (]: On model.learn_dbt.dim_host: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "learn_dbt", "target_name": "dev", "node_id": "model.learn_dbt.dim_host"} */
+USE [dbt];
+      EXEC sp_rename 'dbo.dim_host', 'dim_host__dbt_backup'
+[0m08:19:44.992514 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m08:19:44.997572 [debug] [Thread-1 (]: Using sqlserver connection "model.learn_dbt.dim_host"
+[0m08:19:44.998967 [debug] [Thread-1 (]: On model.learn_dbt.dim_host: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "learn_dbt", "target_name": "dev", "node_id": "model.learn_dbt.dim_host"} */
+USE [dbt];
+      EXEC sp_rename 'dbo.dim_host__dbt_tmp', 'dim_host'
+[0m08:19:45.003045 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m08:19:45.009244 [debug] [Thread-1 (]: Using sqlserver connection "model.learn_dbt.dim_host"
+[0m08:19:45.010576 [debug] [Thread-1 (]: On model.learn_dbt.dim_host: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "learn_dbt", "target_name": "dev", "node_id": "model.learn_dbt.dim_host"} */
+
+        UPDATE dbt.dbo.logs SET end_date_time = GETDATE() WHERE model = '"dbt"."dbo"."dim_host"' AND end_date_time IS NULL;
+      
+[0m08:19:45.014818 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m08:19:45.032864 [debug] [Thread-1 (]: On model.learn_dbt.dim_host: COMMIT
+[0m08:19:45.038699 [debug] [Thread-1 (]: Applying DROP to: "dbt"."dbo"."dim_host__dbt_backup"
+[0m08:19:45.040423 [debug] [Thread-1 (]: Using sqlserver connection "model.learn_dbt.dim_host"
+[0m08:19:45.041704 [debug] [Thread-1 (]: On model.learn_dbt.dim_host: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "learn_dbt", "target_name": "dev", "node_id": "model.learn_dbt.dim_host"} */
+
+      
+    USE [dbt];
+    EXEC('DROP table IF EXISTS "dbo"."dim_host__dbt_backup";');
+
+[0m08:19:45.046305 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m08:19:45.049532 [debug] [Thread-1 (]: On model.learn_dbt.dim_host: Close
+[0m08:19:45.051956 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c8098db5-e70d-4bf2-8eed-f98f8746a724', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb02e309210>]}
+[0m08:19:45.053544 [info ] [Thread-1 (]: 1 of 1 OK created sql table model dbo.dim_host ................................. [[32mOK[0m in 0.55s]
+[0m08:19:45.055151 [debug] [Thread-1 (]: Finished running node model.learn_dbt.dim_host
+[0m08:19:45.057836 [debug] [MainThread]: On master: COMMIT
+[0m08:19:45.059029 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m08:19:45.060108 [debug] [MainThread]: Connection 'model.learn_dbt.dim_host' was properly closed.
+[0m08:19:45.061092 [info ] [MainThread]: 
+[0m08:19:45.062195 [info ] [MainThread]: Finished running 1 table model in 0 hours 0 minutes and 0.78 seconds (0.78s).
+[0m08:19:45.063517 [debug] [MainThread]: Command end result
+[0m08:19:45.149363 [info ] [MainThread]: 
+[0m08:19:45.150442 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m08:19:45.151446 [info ] [MainThread]: 
+[0m08:19:45.152498 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[0m08:19:45.154031 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 5.757945, "process_in_blocks": "0", "process_kernel_time": 0.271703, "process_mem_max_rss": "127180", "process_out_blocks": "0", "process_user_time": 2.606341}
+[0m08:19:45.155103 [debug] [MainThread]: Command `dbt run` succeeded at 08:19:45.154991 after 5.76 seconds
+[0m08:19:45.156016 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb0331667d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb0330c6d10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb0332055d0>]}
+[0m08:19:45.156882 [debug] [MainThread]: Flushing usage events
