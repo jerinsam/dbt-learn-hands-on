@@ -20,7 +20,7 @@ It is a text file that contains instructions for building a Docker image. It is 
 
 - **Scripts -** 
   - Open the terminal and navigate to the directory where the Dockerfile is located.
-  - Run the command `docker build -v "<host/folder : docker/folder>" -t <image-name> .` to build the Docker image
+  - Run the command `docker build -t <image-name> .` to build the Docker image
     - **docker build**: This is the command to initiate the image building process
     - **-t <image_name>**: This flag is used to tag the image with a name. This makes it easier to identify and reference the image later.
     - **.** : This indicates that the Dockerfile is located in the current directory.
