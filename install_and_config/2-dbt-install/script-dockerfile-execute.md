@@ -14,11 +14,11 @@ It is a text file that contains instructions for building a Docker image. It is 
     - **FROM** - specifies the base image to use for the new image. In this case, python :3.12-slim is used as the base image
     - **WORKDIR** - sets the working directory in the container to /usr/local/app
     - **COPY** - copies files from the current directory into the container at the specified path
-    - **RUN** - executes a command in the container. In this case, it installs the python packages mentioned in the requirements.txt file
+    - **RUN** - executes a command while creating the image. In this case, it installs the python packages mentioned in the requirements.txt file
     - **CMD** - specifies the default command to run when the container is started. In this case, CMD ["tail", "-f", "/dev/null"] is used to keep the container running indefinitely.
     - **Volume** - Specify the container path which will be mapped to the host machine path. In this case, the /usr/local/app directory is used.
 
-- **Scripts -** 
+- **Docker Execution Commands -** 
   - Open the WSL (Windows Subsystem for Linux)terminal and navigate to the directory where the Dockerfile is located.
   - Run the command `docker build -t <image-name> .` to build the Docker image
     - **docker build**: This is the command to initiate the image building process
